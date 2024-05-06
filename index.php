@@ -47,38 +47,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body>
-    <!-- ciclo l'array hotels per generare in pagina un elemento con i dati di ogni hotel -->
-    <?php
-    // ciclo che restituisce ogni array contenete gli hotel
-        foreach ($hotels as $hotel){
-            // ciclo che restituisce ogni dato dell'hotel
-            ?>
-            <!-- div che contiene l'elemento con i dettagli dell'hotel -->
-            <div>
-                <?php
-                foreach ($hotel as $key => $value){
-                    if($key == 'name'){                        
-                        echo "<h2> $value </h2>";
-                    } elseif ($key == 'description'){
-                        echo "<p> $value </p>";
-                    } elseif ($key == 'parking'){
-                        if($value){
-                            echo "<p>L'hotel è dotato di parcheggio</p>";
-                        } else{
-                            echo "<p>L'hotel non è dotato di parcheggio</p>";
-                        }
-                    } elseif ($key == 'vote'){
-                        echo "<p> Voto: $value </p>";
-                    } else {
-                        echo "<p> Distanza dal centro: $value km</p>";
-                    }
-                }
-                ?>
-            </div>
+<body class="text-bg-dark">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+    <div class="container text-center mt-5">
+        <div class="row">
+            <!-- ciclo l'array hotels per generare in pagina un elemento con i dati di ogni hotel -->
             <?php
-        }
-     ?>
+            // ciclo che restituisce ogni array contenete gli hotel
+                foreach ($hotels as $hotel){
+                    // ciclo che restituisce ogni dato dell'hotel
+                    ?>
+                    <!-- div che contiene l'elemento con i dettagli dell'hotel -->
+                    <div class="col">
+                        <div class="card">
+                            <?php
+                            foreach ($hotel as $key => $value){
+                                if($key == 'name'){                        
+                                    echo "<h2> $value </h2>";
+                                } elseif ($key == 'description'){
+                                    echo "<p> $value </p>";
+                                } elseif ($key == 'parking'){
+                                    if($value){
+                                        echo "<p>L'hotel è dotato di parcheggio</p>";
+                                    } else{
+                                        echo "<p>L'hotel non è dotato di parcheggio</p>";
+                                    }
+                                } elseif ($key == 'vote'){
+                                    echo "<p> Voto: $value </p>";
+                                } else {
+                                    echo "<p> Distanza dal centro: $value km</p>";
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <?php
+                }
+            ?>
+        </div>
+    </div>
+    
 </body>
 </html>
